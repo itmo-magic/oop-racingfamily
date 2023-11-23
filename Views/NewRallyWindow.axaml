@@ -20,7 +20,7 @@
                         <ComboBoxItem>Воздушная</ComboBoxItem>
                 </ComboBox>
                 <Label>Дистанция</Label>
-                <TextBox Name="DistanceBox"></TextBox>
+                <NumericUpDown Name="DistanceBox"></NumericUpDown>
                 <Button Name="AddButton" Click="Save">
                         Создать
                 </Button>

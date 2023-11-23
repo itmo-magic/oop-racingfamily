@@ -16,15 +16,16 @@ public abstract class FlyingTransport : ITransport
     {
         var accel = GetAccelerationRatio(distance);
         double time = 0;
+        double speed = Speed;
         while (distance != 0)
         {
-            distance -= Speed;
-            if (distance - Speed * accel < 0)
+            distance -= speed;
+            if (distance - speed * accel < 0)
             {
-                time += distance / (Speed * accel);
+                time += distance / (speed * accel);
                 distance = 0;
             }
-            Speed *= accel;
+            speed *= accel;
         }
 
         return TimeSpan.FromMinutes(time);

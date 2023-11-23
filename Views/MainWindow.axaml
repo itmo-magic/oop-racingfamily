@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:r="using:RacingFamily.Models.Rally"
+        xmlns:t="using:RacingFamily.Models.Transport.Base"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RacingFamily.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
@@ -20,14 +21,15 @@
     <Grid RowDefinitions="1*,12*">
         <Grid Grid.Row="1" ColumnDefinitions="*,*">
             <Grid Grid.Column="0" RowDefinitions="10*,1*" Margin="10">
-                <DataGrid IsReadOnly="True" Name="RallyGrid" CellPointerPressed="CellPressed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={x:Static r:RallyCollection.Rallies}}" Background="White" Opacity="90">
+                <DataGrid IsReadOnly="True" FontWeight="Bold" Name="RallyGrid" CellPointerPressed="CellPressed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={x:Static r:RallyCollection.Rallies}}" Background="White" Opacity="60">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:DataType="r:Rally" Header="Название гонки" Binding="{Binding Name}"></DataGridTextColumn>
-                        <DataGridTextColumn x:DataType="r:Rally" Header="Количество транспорта" Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn x:DataType="r:Rally" Header="Тип" Binding="{Binding Type}"></DataGridTextColumn>
+                        <DataGridTextColumn x:DataType="r:Rally" Header="Количество транспорта" Binding="{Binding Transports.Count}"></DataGridTextColumn>
                     </DataGrid.Columns>
                     <DataGrid.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="Удолить" Click="RemoveRally"></MenuItem>
+                            <MenuItem Header="Удалить" Click="RemoveRally"></MenuItem>
                         </ContextMenu>
                     </DataGrid.ContextMenu>
                 </DataGrid>
@@ -36,23 +38,27 @@
                 </Button>
             </Grid>
             <Grid Grid.Column="1" Margin="10" RowDefinitions="11*, 2*, 1.5*" HorizontalAlignment="Stretch">
-                <DataGrid IsReadOnly="True" Margin="0,0,0,10" AutoGenerateColumns="True" Name="TransportGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" Opacity="90">
+                <DataGrid IsReadOnly="True" FontWeight="Bold" Margin="0,0,0,10" Name="TransportGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" Opacity="60">
                     <DataGrid.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="Удолить" Click="RemoveTransport"></MenuItem>
+                            <MenuItem Header="Удалить" Click="RemoveTransport"></MenuItem>
                         </ContextMenu>
                     </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:DataType="t:ITransport" Header="Название транспорта" Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn x:DataType="t:ITransport" Header="Скорость" Binding="{Binding Speed}"></DataGridTextColumn>
+                    </DataGrid.Columns>
                 </DataGrid>
                 <Grid Grid.Row="1" RowDefinitions="2*,2*" Background="White" Opacity="100">
-                    <Label Foreground="Black" Margin="0,0,0,10" Grid.Row="0" HorizontalAlignment="Stretch">Добавить транспорт</Label>
+                    <Label FontWeight="Bold" Foreground="Black" Margin="0,0,0,10" Grid.Row="0" HorizontalAlignment="Stretch">Добавить транспорт</Label>
                     <Grid Grid.Row = "1" ColumnDefinitions="8*, 2*">
                         <ComboBox Name="TransportBox" SelectedIndex="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="3">
-                            <ComboBoxItem Tag="RacingFamily.Models.Transport.Flying.BabaYaga">Ступа бабы яги</ComboBoxItem>
+                            <ComboBoxItem Tag="RacingFamily.Models.Transport.Flying.BabaYaga">Ступа бабы-яги</ComboBoxItem>
                             <ComboBoxItem Tag="RacingFamily.Models.Transport.Flying.BroomStick">Метла</ComboBoxItem>
                             <ComboBoxItem Tag="RacingFamily.Models.Transport.Flying.FlyingShip">Летучий корабль</ComboBoxItem>
                             <ComboBoxItem Tag="RacingFamily.Models.Transport.Flying.JetRag">Ковер-самолет</ComboBoxItem>
-                            <ComboBoxItem Tag="RacingFamily.Models.Transport.Flying.SpeedBoots">Сапоги-скороходы</ComboBoxItem>
-                            <ComboBoxItem Tag="RacingFamily.Models.Transport.Land.PumpkinRoach">Карета-тыква</ComboBoxItem>
+                            <ComboBoxItem Tag="RacingFamily.Models.Transport.Land.SpeedBoots">Сапоги-скороходы</ComboBoxItem>
+                            <ComboBoxItem Tag="RacingFamily.Models.Transport.Land.PumpkinCoach">Карета-тыква</ComboBoxItem>
                             <ComboBoxItem Tag="RacingFamily.Models.Transport.Land.ChickenLegsHut">Избушка на курьих ножках</ComboBoxItem>
                             <ComboBoxItem Tag="RacingFamily.Models.Transport.Land.Centaur">Кентавр</ComboBoxItem>
                         </ComboBox>
