@@ -1,3 +1,5 @@
+using RacingFamily.Models.Transport.Base;
+
 namespace RacingFamily.Models.Transport;
 
 public class JetRag : FlyingTransport

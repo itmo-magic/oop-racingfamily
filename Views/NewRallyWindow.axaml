@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:c="using:RacingFamily.Converters"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:vm="using:RacingFamily.ViewModels"
+        x:Class="RacingFamily.Views.NewRallyWindow"
+        x:DataType="vm:NewRallyViewModel"
+        Title="Новое ралли"
+        WindowStartupLocation="CenterOwner"
+        Height="300" Width="300" CanResize="False">
+        <Window.Resources>
+                <c:MultiAttributeConverter x:Key="MultiAttributeConverter"></c:MultiAttributeConverter>
+        </Window.Resources>
+        <StackPanel>
+                <Label>Введите название гонки</Label>
+                <TextBox Name="NameBox"></TextBox>
+                <Label>Тип</Label>
+                <ComboBox Name="TypeBox">
+                        <ComboBoxItem>Наземная</ComboBoxItem>
+                        <ComboBoxItem>Воздушная</ComboBoxItem>
+                </ComboBox>
+                <Label>Дистанция</Label>
+                <TextBox Name="DistanceBox"></TextBox>
+                <Button Name="AddButton" Click="Save">
+                        Создать
+                </Button>
+        </StackPanel>
+</Window>

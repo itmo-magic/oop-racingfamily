@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using RacingFamily.Models.Rally.Interfaces;
 using RacingFamily.Models.Transport.Base;
 
 namespace RacingFamily.Models.Rally;
@@ -15,5 +18,9 @@ public class LandRally : Rally
         }
 
         return true;
+    }
+
+    public LandRally(string name, int distance) : base(name, distance)
+    {
     }
 }

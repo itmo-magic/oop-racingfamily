@@ -1,18 +1,46 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:RacingFamily.ViewModels"
+        xmlns:c="using:RacingFamily.Converters"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:r="using:RacingFamily.Models.Rally"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RacingFamily.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="RacingFamily">
-
+        Title="RacingFamily"
+        MinHeight="600"
+        MinWidth="1000"
+        WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush Source="/Assets/semja.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Window.Resources>
+        <c:MultiAttributeConverter x:Key="MultiAttributeConverter"></c:MultiAttributeConverter>
+    </Window.Resources>
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
+    <Grid RowDefinitions="1*,12*">
+        <Label Background="White" FontSize="30" HorizontalAlignment="Center" FontStyle="Oblique">Family Rally</Label>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+            <Grid Grid.Column="0" RowDefinitions="10*,1*">
+                <DataGrid Name="RallyGrid" AutoGenerateColumns="True" CellPointerPressed="CellPressed" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={x:Static r:RallyCollection.Rallies}}" Opacity="90">
+                </DataGrid>
+                <Button HorizontalAlignment="Center" Grid.Row="1" Background="White" Click="OpenNewRallyWindow">
+                    Создать гонку
+                </Button>
+            </Grid>
+            <Grid Grid.Column="1" RowDefinitions="12*, 1*, 2*, 2*,2*" HorizontalAlignment="Stretch">
+                <DataGrid AutoGenerateColumns="True" Name="TransportGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" Opacity="90"></DataGrid>
+                <Label Grid.Row="1" HorizontalAlignment="Stretch" Background="White">Добавить транспорт</Label>
+                <ComboBox Grid.Row="2" HorizontalAlignment="Stretch" Background="White"></ComboBox>
+                <Button Grid.Row="3" Click="ButtonClick" HorizontalAlignment="Stretch" Background="White">Добавить</Button>
+                <Button Grid.Row="4" HorizontalAlignment="Stretch" Background="White">Поехали</Button>
+            </Grid>
+        </Grid>
+    </Grid>
 </Window>

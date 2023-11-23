@@ -1,20 +1,25 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using DynamicData.Binding;
 using RacingFamily.Models.Transport.Base;
 
 namespace RacingFamily.Models.Rally;
 
 public abstract class Rally
 {
-    protected int Distance;
-    protected List<ITransport> Transports = new();
+    protected Rally(string name, int distance)
+    {
+        Distance = distance;
+        Name = name;
+        Transports = new ObservableCollection<ITransport>();
+    }
+
+    protected int Distance { get; set; }
+    public string Name { get; set; }
+    public ObservableCollection<ITransport> Transports { get; set; }
 
     public abstract bool ValidateRaceConditions();
-
-    public void AddTransport(ITransport transport)
-    {
-        Transports.Add(transport);
-    }
     
     public Tuple<ITransport, TimeSpan> GetWinner()
     {

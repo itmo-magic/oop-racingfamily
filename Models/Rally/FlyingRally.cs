@@ -1,5 +1,3 @@
-using System;
-using RacingFamily.Models.Transport;
 using RacingFamily.Models.Transport.Base;
 
 namespace RacingFamily.Models.Rally;
@@ -17,5 +15,9 @@ public class FlyingRally : Rally
         }
 
         return true;
+    }
+
+    public FlyingRally(string name, int distance) : base(name, distance)
+    {
     }
 }

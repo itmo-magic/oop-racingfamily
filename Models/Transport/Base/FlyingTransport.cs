@@ -1,9 +1,8 @@
 using System;
-using RacingFamily.Models.Transport.Base;
 
-namespace RacingFamily.Models.Transport;
+namespace RacingFamily.Models.Transport.Base;
 
-public abstract class FlyingTransport : ITransport, IAcceleration
+public abstract class FlyingTransport : ITransport
 {
     protected double Speed;
     
