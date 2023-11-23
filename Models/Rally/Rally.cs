@@ -6,20 +6,30 @@ using RacingFamily.Models.Transport.Base;
 
 namespace RacingFamily.Models.Rally;
 
+public enum TypeRally
+{
+    Flying,
+    Land
+}
+
 public abstract class Rally
 {
-    /*protected Rally(string name, int distance)
+    protected Rally(string name, int distance)
     {
         Distance = distance;
         Name = name;
         Transports = new ObservableCollection<ITransport>();
-    }*/
+        Type = GetRallyType();
+    }
 
     protected int Distance { get; set; }
     public string Name { get; set; }
+    public TypeRally Type { get; set; }
     public ObservableCollection<ITransport> Transports { get; set; }
 
     public abstract bool ValidateRaceConditions();
+    
+    public abstract TypeRally GetRallyType();
     
     public Tuple<ITransport, TimeSpan> GetWinner()
     {

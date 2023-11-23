@@ -6,6 +6,7 @@ public class ChickenLegsHut : LandTransport
 {
     public ChickenLegsHut()
     {
+        Name = "Избушка на курьих ножках";
         Speed = 30;
         RestIncrement = 10;
         MoveTime = 90;

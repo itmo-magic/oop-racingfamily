@@ -1,11 +1,12 @@
 using RacingFamily.Models.Transport.Base;
 
-namespace RacingFamily.Models.Transport;
+namespace RacingFamily.Models.Transport.Flying;
 
 public class JetRag : FlyingTransport
 {
     public JetRag()
     {
+        Name = "Ковер-самолет";
         Speed = 40;
     }
 

@@ -6,6 +6,7 @@ public class SpeedBoots : LandTransport
 {
     public SpeedBoots()
     {
+        Name = "Сапоги-скороходы";
         Speed = 50;
         MoveTime = 100;
         TimeToRest = 100;

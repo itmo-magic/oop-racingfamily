@@ -23,4 +23,12 @@
         <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.2"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.14" />
     </ItemGroup>
+
+
+    <ItemGroup>
+      <Compile Update="Views\ErrorWindow.axaml.cs">
+        <DependentUpon>ErrorWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>

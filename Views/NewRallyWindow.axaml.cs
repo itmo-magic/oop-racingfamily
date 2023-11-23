@@ -32,12 +32,12 @@ public partial class NewRallyWindow : Window
             var rally = new LandRally(name, distance);
             RallyCollection.Rallies.Add(rally);
             rally.Transports = new ObservableCollection<ITransport>();
-            rally.Transports.Add(new BabaYaga(){Name = rally.GetHashCode().ToString()});
         }
         else if (param == "Воздушная")
         {
             var rally = new FlyingRally(name, distance);
             RallyCollection.Rallies.Add(rally);
+            rally.Transports = new ObservableCollection<ITransport>();
         }
     
         Close();

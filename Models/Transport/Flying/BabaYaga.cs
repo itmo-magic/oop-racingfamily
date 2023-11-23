@@ -6,6 +6,7 @@ public class BabaYaga : FlyingTransport
 {
     public BabaYaga()
     {
+        Name = "Баба-яга";
         Speed = 50;
     }
     public override double GetAccelerationRatio(double distance)

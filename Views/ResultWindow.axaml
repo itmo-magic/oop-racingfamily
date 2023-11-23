@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="400"
+        x:Class="RacingFamily.Views.ResultWindow"
+        Title="Результат"
+        WindowStartupLocation="CenterOwner"
+        Height="600" Width="800" CanResize="False">
+    <Window.Background>
+        <ImageBrush Source="/Assets/car.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
+    <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <Label Name="MessageLabel" Margin="10" Opacity="60" Background="White" FontSize="30" FontStyle="Italic" Foreground="Black">Test</Label>
+            <Label Margin="10" Opacity="60" Background="White" FontSize="30" FontWeight="Bold" FontStyle="Italic" Foreground="Black" Name="WinnerLabel">Test</Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Name="TimeLabel" Margin="10" Opacity="60" Background="White" FontSize="30">Test</Label>
+            <Label Opacity="60" Name="TimeResultLabel" Background="White" FontSize="30" FontWeight="Bold">Test</Label>
+        </StackPanel>
+    </StackPanel>
+</Window>

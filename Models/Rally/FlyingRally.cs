@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using RacingFamily.Models.Transport.Base;
 
 namespace RacingFamily.Models.Rally;
@@ -18,10 +17,10 @@ public class FlyingRally : Rally
         return true;
     }
 
-    public FlyingRally(string name, int distance)
+    public override TypeRally GetRallyType()
     {
-        Distance = distance;
-        Name = name;
-        Transports = new ObservableCollection<ITransport>();
+        return TypeRally.Flying;
     }
+
+    public FlyingRally(string name, int distance) : base(name, distance) {}
 }

@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace RacingFamily.Views;
 
-public partial class AddTransportWindow : Window
+public partial class ErrorWindow : Window
 {
-    public AddTransportWindow()
+    public ErrorWindow()
     {
         InitializeComponent();
     }

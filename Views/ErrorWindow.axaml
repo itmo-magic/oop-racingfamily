@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="400"
+        x:Class="RacingFamily.Views.ErrorWindow"
+        Title="Ошибка"
+        WindowStartupLocation="CenterOwner"
+        Height="600" Width="800" CanResize="False">
+    <Window.Background>
+        <ImageBrush Source="/Assets/error.jpeg" Stretch="UniformToFill"/>
+    </Window.Background>
+    <TextBlock Name="MessageLabel" HorizontalAlignment="Center" Background="White" Opacity="60" FontSize="30" VerticalAlignment="Center">Test</TextBlock>
+</Window>

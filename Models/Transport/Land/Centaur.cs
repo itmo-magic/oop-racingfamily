@@ -6,6 +6,7 @@ public class Centaur : LandTransport
 {
     public Centaur()
     {
+        Name = "Кентавр";
         Speed = 40;
         RestIncrement = 5;
         TimeToRest = 15;

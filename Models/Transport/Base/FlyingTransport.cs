@@ -4,9 +4,13 @@ namespace RacingFamily.Models.Transport.Base;
 
 public abstract class FlyingTransport : ITransport
 {
-    protected double Speed;
-
     public string Name { get; set; }
+    public double Speed { get; set; }
+
+    public string GetRallyType()
+    {
+        return "Воздушная";
+    }
 
     public TimeSpan GetDistanceTime(double distance)
     {

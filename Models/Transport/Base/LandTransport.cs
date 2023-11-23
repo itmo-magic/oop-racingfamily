@@ -4,12 +4,17 @@ namespace RacingFamily.Models.Transport.Base;
 
 public abstract class LandTransport : ITransport
 {
-    protected double Speed;
     protected double MoveTime;
     protected double TimeToRest;
     protected double RestIncrement;
 
     public string Name { get; set; }
+    public double Speed { get; set; }
+
+    public Rally.TypeRally GetRallyType()
+    {
+        return Rally.TypeRally.Land;
+    }
 
     public TimeSpan GetDistanceTime(double distance)
     {

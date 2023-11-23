@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using RacingFamily.Models.Rally.Interfaces;
 using RacingFamily.Models.Transport.Base;
 
 namespace RacingFamily.Models.Rally;
@@ -20,10 +17,12 @@ public class LandRally : Rally
         return true;
     }
 
-    public LandRally(string name, int distance)
+    public override TypeRally GetRallyType()
     {
-        Distance = distance;
-        Name = name;
-        Transports = new ObservableCollection<ITransport>();
+        return TypeRally.Land;
+    }
+
+    public LandRally(string name, int distance) : base(name, distance)
+    {
     }
 }

@@ -4,9 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:c="using:RacingFamily.Converters"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        xmlns:vm="using:RacingFamily.ViewModels"
         x:Class="RacingFamily.Views.NewRallyWindow"
-        x:DataType="vm:NewRallyViewModel"
         Title="Новое ралли"
         WindowStartupLocation="CenterOwner"
         Height="300" Width="300" CanResize="False">
@@ -17,7 +15,7 @@
                 <Label>Введите название гонки</Label>
                 <TextBox Name="NameBox"></TextBox>
                 <Label>Тип</Label>
-                <ComboBox Name="TypeBox">
+                <ComboBox Name="TypeBox" SelectedIndex="0">
                         <ComboBoxItem>Наземная</ComboBoxItem>
                         <ComboBoxItem>Воздушная</ComboBoxItem>
                 </ComboBox>
