@@ -5,7 +5,9 @@ namespace RacingFamily.Models.Transport.Base;
 public abstract class FlyingTransport : ITransport
 {
     protected double Speed;
-    
+
+    public string Name { get; set; }
+
     public TimeSpan GetDistanceTime(double distance)
     {
         var accel = GetAccelerationRatio(distance);

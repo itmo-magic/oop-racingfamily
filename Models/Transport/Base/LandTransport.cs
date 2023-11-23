@@ -8,7 +8,9 @@ public abstract class LandTransport : ITransport
     protected double MoveTime;
     protected double TimeToRest;
     protected double RestIncrement;
-    
+
+    public string Name { get; set; }
+
     public TimeSpan GetDistanceTime(double distance)
     {
         double restCount = Math.Floor(distance / MoveTime);

@@ -1,6 +1,10 @@
+using System;
+using System.Collections.ObjectModel;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using DynamicData;
 using RacingFamily.Models.Rally;
+using RacingFamily.Models.Transport.Base;
 using RacingFamily.Models.Transport.Flying;
 using RacingFamily.Models.Transport.Land;
 
@@ -26,9 +30,9 @@ public partial class NewRallyWindow : Window
         if (param == "Наземная")
         {
             var rally = new LandRally(name, distance);
-            rally.Transports.Add(new Centaur());
             RallyCollection.Rallies.Add(rally);
-            
+            rally.Transports = new ObservableCollection<ITransport>();
+            rally.Transports.Add(new BabaYaga(){Name = rally.GetHashCode().ToString()});
         }
         else if (param == "Воздушная")
         {

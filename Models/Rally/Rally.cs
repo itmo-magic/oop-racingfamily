@@ -8,12 +8,12 @@ namespace RacingFamily.Models.Rally;
 
 public abstract class Rally
 {
-    protected Rally(string name, int distance)
+    /*protected Rally(string name, int distance)
     {
         Distance = distance;
         Name = name;
         Transports = new ObservableCollection<ITransport>();
-    }
+    }*/
 
     protected int Distance { get; set; }
     public string Name { get; set; }

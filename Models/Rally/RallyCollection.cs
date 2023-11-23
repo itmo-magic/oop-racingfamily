@@ -4,14 +4,7 @@ namespace RacingFamily.Models.Rally;
 
 public static class RallyCollection
 {
-    private static ObservableCollection<Rally> _rallies = new();
+    //private static ObservableCollection<Rally> _rallies = new();
 
-    public static ObservableCollection<Rally> Rallies
-    {
-        get => _rallies;
-        set
-        {
-            _rallies = value;
-        }
-    }
+    public static ObservableCollection<Rally> Rallies { get; set; } = new();
 }

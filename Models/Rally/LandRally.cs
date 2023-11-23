@@ -20,7 +20,10 @@ public class LandRally : Rally
         return true;
     }
 
-    public LandRally(string name, int distance) : base(name, distance)
+    public LandRally(string name, int distance)
     {
+        Distance = distance;
+        Name = name;
+        Transports = new ObservableCollection<ITransport>();
     }
 }
